@@ -5,17 +5,16 @@ body, html{
 body{
 	font-family: helvetica;
 	color: #FFFFFF;
-	background-color: #444444;
+	background-color: #000;
 }
 
 #weather {
-	background-color: #222222;
+	background-color: #000;
     position: relative;
 }
 
 #map {
-	background-color: #222222;
-
+	background-color: #000;
 	position: relative;
 }
 
@@ -26,15 +25,15 @@ body{
 	padding-top: 4px;
 	padding-bottom: 4px;
 	text-align: center;
-	background-color: #F7FBFF;
+	background-color: #000;
 	border-radius: 6px;
-	color: #444;
+	color: #FFF;
 	font-size: 0.8em;
 }
 
 .temp {
 	font-weight: bold;
-	color: #0af;
+	color: #FFF;
 	font-size: 1.3em;
 }
 
@@ -46,7 +45,7 @@ body{
     #weather {
         width: 100vw;
         height: 100vh;
-        padding: 4px;
+
 
     }
     #map {
@@ -74,7 +73,7 @@ body {
         grid-row: 2/3;
         margin: 0 auto;
 	   width: 50vw;
-	   height: 100vh;
+	   height: 117vh;
 	   color: #111;
     }
 
