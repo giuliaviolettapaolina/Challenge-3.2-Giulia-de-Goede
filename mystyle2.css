@@ -1,0 +1,66 @@
+
+body, html{
+    margin: 0%;
+}
+body{
+	font-family: helvetica;
+	color: #FFFFFF;
+	background-color: #444444;
+}
+
+#weather {
+	background-color: #222222;
+    position: relative;
+}
+
+#map {
+	background-color: #222222;
+
+	position: relative;
+}
+
+#weather > .forecastMoment {
+	float: left;
+	width: 96px;
+	margin: 2px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	text-align: center;
+	background-color: #F7FBFF;
+	border-radius: 6px;
+	color: #444;
+	font-size: 0.8em;
+}
+
+.temp {
+	font-weight: bold;
+	color: #0af;
+	font-size: 1.3em;
+}
+
+.hidden {
+	display: none;
+}
+
+@media screen and (max-width: 600px){
+    #weather {
+        width: 100vw;
+        height: 100vh;
+        padding: 4px;
+
+    }
+    #map {
+	width: 100vw;
+    height: 90vh;
+	padding: 4px;
+	position: relative;
+    }
+}
+    
+@media screen and (min-width: 800px){
+    
+}
+    
+@media screen and (min-width: 1050px){
+    
+}
