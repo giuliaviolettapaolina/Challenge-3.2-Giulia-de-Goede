@@ -41,7 +41,7 @@ body{
 	display: none;
 }
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 700px){
     #weather {
         width: 100vw;
         height: 100vh;
@@ -56,7 +56,7 @@ body{
     }
 }
     
-@media screen and (min-width: 600px){
+@media screen and (min-width: 900px){
 body {
         display: grid;
         grid-template-columns: 50% 50%;
@@ -94,7 +94,7 @@ body {
 }
 }
     
-@media screen and (min-width: 900px){
+@media screen and (min-width: 1200px){
     body {
         display: grid;
         grid-template-columns: 50% 50%;
