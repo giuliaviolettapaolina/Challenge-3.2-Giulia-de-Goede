@@ -3,7 +3,7 @@ function initMap() {
     var coba = {lat: 25.997687, lng: -97.157309};
     var kennedy = {lat: 28.573141, lng:  -80.649045};
     map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: 28.380069, lng: -90.317014},
+        center: {lat: 24.984419, lng: -88.987131},
         zoom: 5,
         //UNDERNEATH THE COLORWAY OF THE MAP
         styles: [
