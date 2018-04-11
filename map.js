@@ -5,6 +5,7 @@ function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 28.380069, lng: -90.317014},
         zoom: 4,
+        //UNDERNEATH THE COLORWAY OF THE MAP
         styles: [
   {
     "elementType": "geometry",
@@ -157,6 +158,15 @@ function initMap() {
   },
   {
     "featureType": "water",
+    "elementType": "geometry.fill",
+    "stylers": [
+      {
+        "color": "#000000"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
     "elementType": "labels.text.fill",
     "stylers": [
       {
@@ -167,6 +177,7 @@ function initMap() {
 ]
 });
     
+//THE NASA AND SPACEX MARKERS
 var marker = new google.maps.Marker({
 position: kennedy,
 map: map,
@@ -181,6 +192,7 @@ icon: 'spacex2.png',
 animation: google.maps.Animation.BOUNCE,
 });
 
+//ELEVATION CALCULATION POSITION
 var elevator = new google.maps.ElevationService;
         var infowindow = new google.maps.InfoWindow({map: map});
 
@@ -190,6 +202,7 @@ var elevator = new google.maps.ElevationService;
           displayLocationElevation(event.latLng, elevator, infowindow);
         });
     
+//EARTHQUAKE UPDATER
 map.data.setStyle(styleFeature);
 
         // Get the earthquake data (JSONP format)
@@ -202,6 +215,7 @@ map.data.setStyle(styleFeature);
         document.getElementsByTagName('head')[0].appendChild(script);
 }
 
+//FUNCTION FOR THE ELEVATION
 function displayLocationElevation(location, elevator, infowindow) {
         // Initiate the location request
         elevator.getElevationForLocations({
@@ -223,11 +237,14 @@ function displayLocationElevation(location, elevator, infowindow) {
         });
       }
 
+
+//FUNCTION FOR THE EARTHQUAKES
 function eqfeed_callback(data) {
         map.data.addGeoJson(data);
       }
 
-      function styleFeature(feature) {
+//FUNCTION EARTQUAKE RATING PROCESS
+function styleFeature(feature) {
         var low = [151, 83, 34];   // color of mag 1.0
         var high = [5, 69, 54];  // color of mag 6.0 and above
         var minMag = 1.0;
@@ -253,7 +270,8 @@ function eqfeed_callback(data) {
         };
       }
 
-      function interpolateHsl(lowHsl, highHsl, fraction) {
+//FUNCTION EARTQUAKE SHOWING CIRCLES
+function interpolateHsl(lowHsl, highHsl, fraction) {
         var color = [];
         for (var i = 0; i < 3; i++) {
           // Calculate color based on the fraction.
@@ -263,7 +281,7 @@ function eqfeed_callback(data) {
         return 'hsl(' + color[0] + ',' + color[1] + '%,' + color[2] + '%)';
       }
 
-      var mapStyle = [{
+var mapStyle = [{
         'featureType': 'all',
         'elementType': 'all',
         'stylers': [{'visibility': 'off'}]
