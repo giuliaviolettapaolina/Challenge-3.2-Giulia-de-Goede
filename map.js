@@ -1,14 +1,11 @@
-          var map;
-          function initMap() {
-            var coba = {lat: 25.997687, lng: -97.157309};
-            var kennedy = {lat: 28.573141, lng:  -80.649045};
-            map = new google.maps.Map(document.getElementById('map'), {
-              center: {lat: 28.380069, lng: -90.317014},
-              zoom: 4,
-            
-              styles: 
-
-                  [
+var map;
+function initMap() {
+    var coba = {lat: 25.997687, lng: -97.157309};
+    var kennedy = {lat: 28.573141, lng:  -80.649045};
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: 28.380069, lng: -90.317014},
+        zoom: 4,
+        styles: [
   {
     "elementType": "geometry",
     "stylers": [
@@ -168,7 +165,8 @@
     ]
   }
 ]
-            });
+});
+    
 var marker = new google.maps.Marker({
 position: kennedy,
 map: map,
@@ -183,7 +181,35 @@ icon: 'spacex2.png',
 animation: google.maps.Animation.BOUNCE,
 });
 
-              
-              
+var elevator = new google.maps.ElevationService;
+        var infowindow = new google.maps.InfoWindow({map: map});
+
+        // Add a listener for the click event. Display the elevation for the LatLng of
+        // the click inside the infowindow.
+        map.addListener('click', function(event) {
+          displayLocationElevation(event.latLng, elevator, infowindow);
+        });
+}
+
+function displayLocationElevation(location, elevator, infowindow) {
+        // Initiate the location request
+        elevator.getElevationForLocations({
+          'locations': [location]
+        }, function(results, status) {
+          infowindow.setPosition(location);
+          if (status === 'OK') {
+            // Retrieve the first result
+            if (results[0]) {
+              // Open the infowindow indicating the elevation at the clicked position.
+              infowindow.setContent('The elevation at this point <br>is ' +
+                  results[0].elevation + ' meters.');
+            } else {
+              infowindow.setContent('No results found');
+            }
+          } else {
+            infowindow.setContent('Elevation service failed due to: ' + status);
           }
+        });
+      }
+
 
